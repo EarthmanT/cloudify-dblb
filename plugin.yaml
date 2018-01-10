@@ -7,7 +7,7 @@ plugins:
 workflows:
 
   scale_and_update:
-    mapping: dblb.cloudify_dblb.tasks.execute_scale
+    mapping: dblb.cloudify_dblb.tasks.scale_and_update
     parameters:
       db_deployment_id:
         default: 'db'
@@ -15,4 +15,3 @@ workflows:
         default: 'lb'
       scale_parameters:
         default: {'scalable_entity_name': 'app_group'}
-
