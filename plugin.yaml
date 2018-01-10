@@ -1,0 +1,18 @@
+plugins:
+
+  dblb:
+    executor: central_deployment_agent
+    source: cloudify-dblb
+
+workflows:
+
+  scale_and_update:
+    mapping: dblb.cloudify_dblb.tasks.execute_scale
+    parameters:
+      db_deployment_id:
+        default: 'db'
+      lb_deployment_id:
+        default: 'lb'
+      scale_parameters:
+        default: {'scalable_entity_name': 'app_group'}
+
