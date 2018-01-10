@@ -2,6 +2,8 @@ plugins:
 
   dblb:
     executor: central_deployment_agent
+    package_name: cloudify-dblb
+    package_version: '0.1'
     source: https://github.com/EarthmanT/cloudify-dblb/archive/master.zip
 
 workflows:
