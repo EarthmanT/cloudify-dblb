@@ -59,7 +59,7 @@ def wait_for_execution_termination(
 
 @workflow
 def scale_and_update(
-        db_deployment_id, lb_deployment_id, scale_parameters, **_):
+        db_deployment_id, lb_deployment_id, scale_parameters, timeout=300, **_):
     """
     db_deployment_id: The MariaDB Deployment ID.
     lb_deployment_id: The HAProxy Deployment ID.
@@ -76,7 +76,7 @@ def scale_and_update(
     }
     db_scale_response = check_api(client.executions.start, db_scale_arguments)
     db_scale_id = db_scale_response.get('id')
-    wait_for_execution_termination(client, db_scale_id)
+    wait_for_execution_termination(client, db_scale_id, timeout)
 
     # Get the Database Deployment Outputs.
     dp_get_arguments = {
@@ -126,4 +126,4 @@ def scale_and_update(
         lb_update_response = \
             check_api(client.executions.start, execute_operation_arguments)
         lb_update_id = lb_update_response.get('id')
-        wait_for_execution_termination(client, lb_update_id)
+        wait_for_execution_termination(client, lb_update_id, timeout)

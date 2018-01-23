@@ -3,7 +3,7 @@ plugins:
   dblb:
     executor: central_deployment_agent
     package_name: cloudify-dblb
-    package_version: '0.1'
+    package_version: '0.2'
     source: https://github.com/EarthmanT/cloudify-dblb/archive/master.zip
 
 workflows:
@@ -17,3 +17,5 @@ workflows:
         default: 'lb'
       scale_parameters:
         default: {'scalable_entity_name': 'app_group'}
+      timeout:
+        default: 300

@@ -18,7 +18,7 @@ from setuptools import setup
 
 setup(
     name='cloudify-dblb',
-    version='0.1',
+    version='0.2',
     packages=['cloudify_dblb'],
     license='LICENSE',
     description='Scale MariaDB Blueprint and Update HAProxy Blueprint.',
